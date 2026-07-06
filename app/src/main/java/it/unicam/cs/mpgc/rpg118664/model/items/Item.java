@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg118664.model.items;
 
-public class Item {
+public abstract class Item {
     private final String name;
     private final String description;
 
