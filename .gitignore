@@ -1,3 +1,4 @@
+.DS_Store
 .gradle/
 build/
 app/build/
@@ -15,3 +16,4 @@ Thumbs.db
 
 .gradle
 build
+savegame.json

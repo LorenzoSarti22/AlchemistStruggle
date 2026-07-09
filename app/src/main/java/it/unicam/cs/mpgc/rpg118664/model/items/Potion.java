@@ -16,6 +16,11 @@ public class Potion extends Item implements Usable {
 
     @Override
     public void use(Alchemist alchemist) {
+        if (this.type == PotionType.HEALTH_POTION) {
+            alchemist.heal(this.type.getHpMaxBonus()); 
+        } else {
         alchemist.boostStats(type.getHpMaxBonus(), type.getAttackBonus(), type.getDefenseBonus());
     }
+}
+
 }

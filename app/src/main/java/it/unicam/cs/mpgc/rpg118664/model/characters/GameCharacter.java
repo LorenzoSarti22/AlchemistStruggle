@@ -38,6 +38,12 @@ public abstract class GameCharacter {
         }
     }
 
+    public void heal(int amount) {
+        if (amount > 0) {
+            this.setHp(this.getHp() + amount);
+        }
+    }
+
     public int getAttack() {
         return attack;
     }
