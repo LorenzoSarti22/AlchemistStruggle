@@ -1,41 +1,45 @@
 package it.unicam.cs.mpgc.rpg118664.model.items;
 
+import it.unicam.cs.mpgc.rpg118664.persistence.StaticDataRepository;
+import it.unicam.cs.mpgc.rpg118664.persistence.StaticDataRepository.PotionData;
+import java.util.Map;
+
 public enum PotionType {
-    HEALTH_POTION("Pozione di Vita", "Aumenta permanentemente i tuoi HP massimi", 40, 0, 0),
-    STRENGTH_POTION("Pozione della Forza", "Aumenta permanentemente il tuo attacco", 0, 15, 0),
-    IRON_POTION("Pozione di Ferro", "Aumenta permanentemente la tua difesa", 0, 0, 10);
+    HEALTH_POTION,
+    STRENGTH_POTION,
+    IRON_POTION;
 
-    private final String name;
-    private final String description;
-    private final int hpMaxBonus;
-    private final int attackBonus;
-    private final int defenseBonus;
+    private static final Map<String, PotionData> DATA = new StaticDataRepository().loadPotions();
 
-    PotionType(String name, String description, int hpMaxBonus, int attackBonus, int defenseBonus) {
-        this.name = name;
-        this.description = description;
-        this.hpMaxBonus = hpMaxBonus;
-        this.attackBonus = attackBonus;
-        this.defenseBonus = defenseBonus;
+    private PotionData data() {
+        PotionData potionData = DATA.get(this.name());
+        if (potionData == null) {
+            throw new IllegalStateException("Dati mancanti in potions.json per: " + this.name());
+        }
+        return potionData;
     }
 
     public String getName() {
-        return name;
+        return data().name();
     }
 
     public String getDescription() {
-        return description;
+        return data().description();
     }
 
     public int getHpMaxBonus() {
-        return hpMaxBonus;
+        return data().hpMaxBonus();
     }
 
     public int getAttackBonus() {
-        return attackBonus;
+        return data().attackBonus();
     }
 
     public int getDefenseBonus() {
-        return defenseBonus;
+        return data().defenseBonus();
+    }
+
+    public Map<String, Integer> getRequiredIngredients() {
+        return data().requiredIngredients();
     }
 }
