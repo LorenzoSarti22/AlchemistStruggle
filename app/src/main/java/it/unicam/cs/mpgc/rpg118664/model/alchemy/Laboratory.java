@@ -2,8 +2,9 @@ package it.unicam.cs.mpgc.rpg118664.model.alchemy;
 
 import it.unicam.cs.mpgc.rpg118664.model.characters.Alchemist;
 import it.unicam.cs.mpgc.rpg118664.model.items.Item;
-import it.unicam.cs.mpgc.rpg118664.model.items.Ingredient; 
+import it.unicam.cs.mpgc.rpg118664.model.items.Ingredient;
 import it.unicam.cs.mpgc.rpg118664.model.items.Potion;
+import it.unicam.cs.mpgc.rpg118664.model.items.PotionType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -11,27 +12,27 @@ import java.util.Map;
 
 public class Laboratory {
 
-    public boolean canCraft(Alchemist alchemist, Recipe recipe) {
+    public boolean canCraft(Alchemist alchemist, PotionType potionType) {
         Map<String, Integer> available = getInventoryCount(alchemist);
-        
-        for (Map.Entry<String, Integer> entry : recipe.getRequiredIngredients().entrySet()) {
+
+        for (Map.Entry<String, Integer> entry : potionType.getRequiredIngredients().entrySet()) {
             if (available.getOrDefault(entry.getKey(), 0) < entry.getValue()) {
-                return false; 
+                return false;
             }
         }
         return true;
     }
 
-    public boolean craft(Alchemist alchemist, Recipe recipe) {
-        if (!canCraft(alchemist, recipe)) {
+    public boolean craft(Alchemist alchemist, PotionType potionType) {
+        if (!canCraft(alchemist, potionType)) {
             return false;
         }
 
-        recipe.getRequiredIngredients().forEach((ingName, quantity) -> 
+        potionType.getRequiredIngredients().forEach((ingName, quantity) ->
             consumeIngredient(alchemist, ingName, quantity)
         );
 
-        alchemist.addItem(new Potion(recipe.getResultType()));
+        alchemist.addItem(new Potion(potionType));
         return true;
     }
 
