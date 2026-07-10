@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monsters>
+
+    <monster>
+        <type>SLIME</type>
+        <name>Slime Verde</name>
+        <hpMax>40</hpMax>
+        <attack>10</attack>
+        <defense>2</defense>
+        <spawnWeight>40</spawnWeight>
+    </monster>
+
+    <monster>
+        <type>GOLEM</type>
+        <name>Golem di Pietra</name>
+        <hpMax>60</hpMax>
+        <attack>14</attack>
+        <defense>8</defense>
+        <spawnWeight>30</spawnWeight>
+    </monster>
+
+    <monster>
+        <type>FAIRY</type>
+        <name>Fata Oscura</name>
+        <hpMax>35</hpMax>
+        <attack>16</attack>
+        <defense>1</defense>
+        <spawnWeight>30</spawnWeight>
+    </monster>
+
+</monsters>

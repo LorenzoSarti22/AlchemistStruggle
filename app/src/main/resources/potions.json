@@ -1,0 +1,35 @@
+[
+    {
+        "type": "HEALTH_POTION",
+        "name": "Pozione di Vita",
+        "description": "Aumenta permanentemente i tuoi HP",
+        "hpMaxBonus": 40,
+        "attackBonus": 0,
+        "defenseBonus": 0,
+        "requiredIngredients": {
+            "Gelatina": 2
+        }
+    },
+    {
+        "type": "STRENGTH_POTION",
+        "name": "Pozione della Forza",
+        "description": "Aumenta permanentemente il tuo attacco",
+        "hpMaxBonus": 0,
+        "attackBonus": 15,
+        "defenseBonus": 0,
+        "requiredIngredients": {
+            "Polvere Fatata": 2
+        }
+    },
+    {
+        "type": "IRON_POTION",
+        "name": "Pozione di Ferro",
+        "description": "Aumenta permanentemente la tua difesa",
+        "hpMaxBonus": 0,
+        "attackBonus": 0,
+        "defenseBonus": 10,
+        "requiredIngredients": {
+            "Cristallo": 2
+        }
+    }
+]
