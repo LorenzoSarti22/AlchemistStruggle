@@ -20,7 +20,7 @@ java {
 }
 
 application {
-    mainClass = "it.unicam.cs.mpgc.rpg118664.App"
+    mainClass.set("it.unicam.cs.mpgc.rpg118664.Main")
 }
 
 tasks.named<Test>("test") {
